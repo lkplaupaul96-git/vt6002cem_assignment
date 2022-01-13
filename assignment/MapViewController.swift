@@ -8,16 +8,28 @@
 import UIKit
 import MapKit
 
-class MapViewController: UIViewController, MKMapViewDelegate {
+class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
     @IBOutlet weak var btnSearch: UIButton!
     @IBOutlet weak var btnShowNearBy: UIButton!
     @IBOutlet weak var mapView: MKMapView!
     
+    let locationManager = CLLocationManager()
+    var firstGPSCoord:Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.mapView.delegate = self
         
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+    }
+    
+    @IBAction func showNearbyTour() {
+        self.locationManager.requestWhenInUseAuthorization()
+        guard CLLocationManager.locationServicesEnabled() else { return }
+        firstGPSCoord = false
+        locationManager.startUpdatingLocation()
     }
     
     func presentSubView() {
@@ -76,10 +88,23 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         }
     }
     
+    // Delegate
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let renderer = MKPolylineRenderer(polyline: overlay as! MKPolyline)
         renderer.strokeColor = .red
         renderer.alpha = 0.6
         return renderer
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+ 
+        if !firstGPSCoord {
+            firstGPSCoord = true
+            let center = CLLocationCoordinate2D(latitude: locValue.latitude, longitude: locValue.longitude)
+            let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
+            self.mapView.setRegion(region, animated: true)
+            locationManager.stopUpdatingLocation()
+        }
     }
 }

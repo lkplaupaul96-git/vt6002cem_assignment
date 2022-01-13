@@ -27,12 +27,18 @@
                                         <color key="tintColor" systemColor="systemIndigoColor"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Search"/>
+                                        <connections>
+                                            <segue destination="7qH-0Y-Ezy" kind="show" identifier="segueSearchTour" id="vJq-kt-Z8r"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ucS-qv-jCS">
                                         <rect key="frame" x="15" y="59" width="360" height="31"/>
                                         <color key="tintColor" systemColor="systemIndigoColor"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Show nearby tour"/>
+                                        <connections>
+                                            <action selector="showNearbyTour" destination="BYZ-38-t0r" eventType="touchUpInside" id="pc8-JM-uFQ"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -78,7 +84,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" image="list.dash" catalog="system"/>
                                 <connections>
-                                    <segue destination="7qH-0Y-Ezy" kind="show" id="A3f-Ch-VaH"/>
+                                    <segue destination="7qH-0Y-Ezy" kind="show" identifier="segueListTour" id="A3f-Ch-VaH"/>
                                 </connections>
                             </button>
                         </barButtonItem>
@@ -228,6 +234,9 @@
             <point key="canvasLocation" x="844.61538461538464" y="60.426540284360186"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="vJq-kt-Z8r"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="list.dash" catalog="system" width="128" height="85"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>

@@ -39,6 +39,7 @@ class TourTableViewController: UITableViewController {
 //        print("TEST")
 //    }
     
+    // back to map view
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let cell = sender as? UITableViewCell else { return }
         let idx = cell.convert(CGPoint.zero, to: self.tableView)
