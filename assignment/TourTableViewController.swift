@@ -11,6 +11,7 @@ import Firebase
 
 class TourTableViewController: UITableViewController {
 
+    @IBOutlet weak var txtSearch: UITextField!
     var selectedItem:TourDetail?
     var tours:[TourDetail] = [TourDetail]()
     
@@ -23,6 +24,35 @@ class TourTableViewController: UITableViewController {
     func fetchTours() {
         let db = Firestore.firestore()
         db.collection("tours").getDocuments { snapshot, error in
+            if error == nil {
+                if let snapshot = snapshot {
+                    let arr = snapshot.documents.map { d -> TourDetail in
+                        let tourPoints = d["tourPoints"] as? [[String: Any]] ?? [[String: Any]]()
+                        return TourDetail(
+                            id: d.documentID,
+                            title: d["title"] as? String ?? "",
+                            subtitle: d["subtitle"] as? String ?? "",
+                            tourPoints: tourPoints.map { tp -> TourPoint in return TourPoint(
+                                title: tp["title"] as? String ?? "",
+                                coordinate: tp["coordinate"] as? GeoPoint ?? GeoPoint(latitude: 0, longitude: 0)) })
+                    }
+                    self.tours = arr
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                }
+            }else{
+                print(error?.localizedDescription)
+            }
+        }
+    }
+    
+    @IBAction func fetchToursWithFilter() {
+        guard let keywords = txtSearch.text else { return }
+        let db = Firestore.firestore()
+        db.collection("tours")
+            .whereField("title", isEqualTo: keywords)
+            .getDocuments { snapshot, error in
             if error == nil {
                 if let snapshot = snapshot {
                     let arr = snapshot.documents.map { d -> TourDetail in

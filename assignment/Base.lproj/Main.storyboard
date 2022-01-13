@@ -157,6 +157,9 @@
                                     <rect key="frame" x="325" y="5" width="50" height="34"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="plain" image="magnifyingglass" catalog="system"/>
+                                    <connections>
+                                        <action selector="fetchToursWithFilter" destination="7qH-0Y-Ezy" eventType="touchUpInside" id="RSV-Tm-yBf"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -208,6 +211,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Tour / Guide" id="6dk-g8-QVQ"/>
+                    <connections>
+                        <outlet property="txtSearch" destination="T3O-G1-Tpg" id="VIf-B9-5jD"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="muu-GI-skG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="iFL-jM-qHW" userLabel="Exit" sceneMemberID="exit"/>
