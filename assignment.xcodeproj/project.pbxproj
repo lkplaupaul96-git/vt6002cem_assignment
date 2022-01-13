@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		6FA0DC27278AC16B00EFF1DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA0DC26278AC16B00EFF1DF /* AppDelegate.swift */; };
 		6FA0DC29278AC16B00EFF1DF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA0DC28278AC16B00EFF1DF /* SceneDelegate.swift */; };
-		6FA0DC2B278AC16B00EFF1DF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA0DC2A278AC16B00EFF1DF /* ViewController.swift */; };
+		6FA0DC2B278AC16B00EFF1DF /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA0DC2A278AC16B00EFF1DF /* NavigationViewController.swift */; };
 		6FA0DC2E278AC16B00EFF1DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FA0DC2C278AC16B00EFF1DF /* Main.storyboard */; };
 		6FA0DC31278AC16B00EFF1DF /* assignment.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6FA0DC2F278AC16B00EFF1DF /* assignment.xcdatamodeld */; };
 		6FA0DC33278AC16C00EFF1DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6FA0DC32278AC16C00EFF1DF /* Assets.xcassets */; };
@@ -19,6 +19,8 @@
 		6FA0DC4D278AC16C00EFF1DF /* assignmentUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA0DC4C278AC16C00EFF1DF /* assignmentUITestsLaunchTests.swift */; };
 		6FA0DC5A278AC98300EFF1DF /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA0DC59278AC98300EFF1DF /* MapViewController.swift */; };
 		6FA0DC62278ACE3400EFF1DF /* UIViewExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA0DC61278ACE3400EFF1DF /* UIViewExtentions.swift */; };
+		6FA9D053278B07E4000EFF1D /* TourStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA9D052278B07E4000EFF1D /* TourStruct.swift */; };
+		6FA9D055278B0A02000EFF1D /* TourCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA9D054278B0A02000EFF1D /* TourCell.swift */; };
 		6FF6C30A278AE49A0025F2AC /* TourTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF6C309278AE49A0025F2AC /* TourTableViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,7 +45,7 @@
 		6FA0DC23278AC16B00EFF1DF /* assignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = assignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FA0DC26278AC16B00EFF1DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6FA0DC28278AC16B00EFF1DF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		6FA0DC2A278AC16B00EFF1DF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6FA0DC2A278AC16B00EFF1DF /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		6FA0DC2D278AC16B00EFF1DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6FA0DC30278AC16B00EFF1DF /* assignment.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = assignment.xcdatamodel; sourceTree = "<group>"; };
 		6FA0DC32278AC16C00EFF1DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -56,6 +58,8 @@
 		6FA0DC4C278AC16C00EFF1DF /* assignmentUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = assignmentUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		6FA0DC59278AC98300EFF1DF /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		6FA0DC61278ACE3400EFF1DF /* UIViewExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtentions.swift; sourceTree = "<group>"; };
+		6FA9D052278B07E4000EFF1D /* TourStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourStruct.swift; sourceTree = "<group>"; };
+		6FA9D054278B0A02000EFF1D /* TourCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourCell.swift; sourceTree = "<group>"; };
 		6FF6C309278AE49A0025F2AC /* TourTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,7 +113,7 @@
 			children = (
 				6FA0DC26278AC16B00EFF1DF /* AppDelegate.swift */,
 				6FA0DC28278AC16B00EFF1DF /* SceneDelegate.swift */,
-				6FA0DC2A278AC16B00EFF1DF /* ViewController.swift */,
+				6FA0DC2A278AC16B00EFF1DF /* NavigationViewController.swift */,
 				6FA0DC2C278AC16B00EFF1DF /* Main.storyboard */,
 				6FA0DC32278AC16C00EFF1DF /* Assets.xcassets */,
 				6FA0DC34278AC16C00EFF1DF /* LaunchScreen.storyboard */,
@@ -118,6 +122,8 @@
 				6FA0DC59278AC98300EFF1DF /* MapViewController.swift */,
 				6FA0DC61278ACE3400EFF1DF /* UIViewExtentions.swift */,
 				6FF6C309278AE49A0025F2AC /* TourTableViewController.swift */,
+				6FA9D052278B07E4000EFF1D /* TourStruct.swift */,
+				6FA9D054278B0A02000EFF1D /* TourCell.swift */,
 			);
 			path = assignment;
 			sourceTree = "<group>";
@@ -271,11 +277,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				6FA0DC31278AC16B00EFF1DF /* assignment.xcdatamodeld in Sources */,
-				6FA0DC2B278AC16B00EFF1DF /* ViewController.swift in Sources */,
+				6FA0DC2B278AC16B00EFF1DF /* NavigationViewController.swift in Sources */,
+				6FA9D055278B0A02000EFF1D /* TourCell.swift in Sources */,
 				6FA0DC27278AC16B00EFF1DF /* AppDelegate.swift in Sources */,
 				6FA0DC62278ACE3400EFF1DF /* UIViewExtentions.swift in Sources */,
 				6FA0DC5A278AC98300EFF1DF /* MapViewController.swift in Sources */,
 				6FA0DC29278AC16B00EFF1DF /* SceneDelegate.swift in Sources */,
+				6FA9D053278B07E4000EFF1D /* TourStruct.swift in Sources */,
 				6FF6C30A278AE49A0025F2AC /* TourTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

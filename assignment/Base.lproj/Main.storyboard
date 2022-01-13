@@ -16,32 +16,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="8TD-QT-kMX">
-                                <rect key="frame" x="0.0" y="88" width="390" height="722"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" pitchEnabled="NO" showsBuildings="NO" showsCompass="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8TD-QT-kMX">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="810"/>
                             </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lvH-bh-KNO">
-                                <rect key="frame" x="0.0" y="700" width="390" height="110"/>
+                                <rect key="frame" x="0.0" y="710" width="390" height="100"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Keywords ..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xhr-NQ-qJN">
-                                        <rect key="frame" x="15" y="15" width="360" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="search"/>
-                                    </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WpJ-27-yCJ">
-                                        <rect key="frame" x="15" y="64" width="360" height="31"/>
+                                        <rect key="frame" x="15" y="10" width="360" height="31"/>
+                                        <color key="tintColor" systemColor="systemIndigoColor"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Search"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ucS-qv-jCS">
+                                        <rect key="frame" x="15" y="59" width="360" height="31"/>
+                                        <color key="tintColor" systemColor="systemIndigoColor"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Show nearby tour"/>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="xhr-NQ-qJN" secondAttribute="trailing" constant="15" id="2mk-AQ-qZb"/>
-                                    <constraint firstItem="xhr-NQ-qJN" firstAttribute="leading" secondItem="lvH-bh-KNO" secondAttribute="leading" constant="15" id="7yx-jt-s9l"/>
-                                    <constraint firstAttribute="bottom" secondItem="WpJ-27-yCJ" secondAttribute="bottom" constant="15" id="AEv-FH-3Ux"/>
-                                    <constraint firstItem="xhr-NQ-qJN" firstAttribute="top" secondItem="lvH-bh-KNO" secondAttribute="top" constant="15" id="TPX-sp-lR9"/>
+                                    <constraint firstAttribute="bottom" secondItem="ucS-qv-jCS" secondAttribute="bottom" constant="10" id="3OC-4i-q4A"/>
+                                    <constraint firstAttribute="trailing" secondItem="ucS-qv-jCS" secondAttribute="trailing" constant="15" id="NIj-o2-oWe"/>
+                                    <constraint firstItem="WpJ-27-yCJ" firstAttribute="top" secondItem="lvH-bh-KNO" secondAttribute="top" constant="10" id="Xve-XW-XCh"/>
                                     <constraint firstAttribute="trailing" secondItem="WpJ-27-yCJ" secondAttribute="trailing" constant="15" id="mv1-JJ-aBZ"/>
                                     <constraint firstItem="WpJ-27-yCJ" firstAttribute="leading" secondItem="lvH-bh-KNO" secondAttribute="leading" constant="15" id="nqH-1z-f1o"/>
-                                    <constraint firstAttribute="height" constant="110" id="zhd-Xs-P13"/>
+                                    <constraint firstItem="ucS-qv-jCS" firstAttribute="leading" secondItem="lvH-bh-KNO" secondAttribute="leading" constant="15" id="u2w-pA-0lO"/>
+                                    <constraint firstAttribute="height" constant="100" id="zhd-Xs-P13"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -62,38 +64,38 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8TD-QT-kMX" secondAttribute="trailing" id="HVT-D2-FGC"/>
                             <constraint firstItem="lvH-bh-KNO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="XZO-Fz-OjX"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="8TD-QT-kMX" secondAttribute="bottom" id="Yzb-vL-AGN"/>
-                            <constraint firstItem="8TD-QT-kMX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="enr-qL-dHy"/>
+                            <constraint firstAttribute="top" secondItem="8TD-QT-kMX" secondAttribute="top" id="dct-jU-Z6s"/>
+                            <constraint firstItem="8TD-QT-kMX" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="enr-qL-dHy"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lvH-bh-KNO" secondAttribute="trailing" id="nYO-XY-2eu"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="5T6-qA-jgr">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="N3z-7j-SkS">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="YXF-VK-U3o">
-                                <rect key="frame" x="16" y="5" width="86" height="34.333333333333336"/>
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="d3I-NM-WAz">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="ixd-eZ-Bio">
+                                <rect key="frame" x="16" y="5" width="51" height="34.333333333333336"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" systemColor="systemIndigoColor"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="list.bullet" catalog="system" title=""/>
+                                <buttonConfiguration key="configuration" style="filled" image="list.dash" catalog="system"/>
                                 <connections>
-                                    <segue destination="7qH-0Y-Ezy" kind="show" identifier="showTourList" id="zx8-6c-pKE"/>
+                                    <segue destination="7qH-0Y-Ezy" kind="show" id="A3f-Ch-VaH"/>
                                 </connections>
                             </button>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="9AK-bd-SUo">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="vql-Tb-8NP">
-                                <rect key="frame" x="288" y="5" width="86" height="34.333333333333336"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="yBH-ki-pCP">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="VkU-3s-jUW">
+                                <rect key="frame" x="317.66666666666669" y="5" width="56.333333333333314" height="34.333333333333336"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" systemColor="systemIndigoColor"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="person.fill" catalog="system" title=""/>
-                                <connections>
-                                    <segue destination="4JV-L0-dRQ" kind="presentation" id="c5E-vd-lSY"/>
-                                </connections>
+                                <buttonConfiguration key="configuration" style="filled" image="photo.on.rectangle.angled" catalog="system"/>
                             </button>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="btnSearch" destination="WpJ-27-yCJ" id="UJ7-bz-4Bh"/>
+                        <outlet property="btnShowNearBy" destination="ucS-qv-jCS" id="xXE-6z-7hB"/>
                         <outlet property="mapView" destination="8TD-QT-kMX" id="wf0-2h-Ner"/>
-                        <outlet property="txtKeywords" destination="xhr-NQ-qJN" id="aEK-hZ-kej"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -105,7 +107,7 @@
             <objects>
                 <tableViewController id="4JV-L0-dRQ" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="AaY-hR-9me">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
@@ -131,19 +133,67 @@
         <!--Tour / Guide-->
         <scene sceneID="XfA-R4-9L7">
             <objects>
-                <tableViewController id="7qH-0Y-Ezy" sceneMemberID="viewController">
+                <tableViewController id="7qH-0Y-Ezy" customClass="TourTableViewController" customModule="assignment" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="3iZ-ex-kwZ">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="1Mv-Jj-Li2">
+                            <rect key="frame" x="0.0" y="0.0" width="390" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T3O-G1-Tpg">
+                                    <rect key="frame" x="15" y="5" width="295" height="34"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0cv-M6-YWy">
+                                    <rect key="frame" x="325" y="5" width="50" height="34"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" image="magnifyingglass" catalog="system"/>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="0cv-M6-YWy" secondAttribute="bottom" constant="5" id="3E2-cK-H4f"/>
+                                <constraint firstAttribute="trailing" secondItem="0cv-M6-YWy" secondAttribute="trailing" constant="15" id="ABA-GU-vZU"/>
+                                <constraint firstItem="0cv-M6-YWy" firstAttribute="top" secondItem="1Mv-Jj-Li2" secondAttribute="top" constant="5" id="DdF-nM-30X"/>
+                                <constraint firstItem="T3O-G1-Tpg" firstAttribute="leading" secondItem="1Mv-Jj-Li2" secondAttribute="leading" constant="15" id="Xks-ST-xuK"/>
+                                <constraint firstItem="T3O-G1-Tpg" firstAttribute="top" secondItem="1Mv-Jj-Li2" secondAttribute="top" constant="5" id="bHc-E8-yfT"/>
+                                <constraint firstItem="0cv-M6-YWy" firstAttribute="leading" secondItem="1Mv-Jj-Li2" secondAttribute="trailing" constant="-65" id="rrA-1h-js0"/>
+                                <constraint firstAttribute="bottom" secondItem="T3O-G1-Tpg" secondAttribute="bottom" constant="5" id="u2w-l0-sap"/>
+                                <constraint firstItem="0cv-M6-YWy" firstAttribute="leading" secondItem="T3O-G1-Tpg" secondAttribute="trailing" constant="15" id="wwC-WZ-qmQ"/>
+                            </constraints>
+                        </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="NZc-Xa-fRv">
-                                <rect key="frame" x="0.0" y="44.666666030883789" width="390" height="43.666667938232422"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tourCell" id="NZc-Xa-fRv" customClass="TourCell" customModule="assignment" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="88.666666030883789" width="390" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NZc-Xa-fRv" id="Url-tS-TGU">
                                     <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lVg-BP-csN">
+                                            <rect key="frame" x="20" y="11" width="273" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="?? Point(s)" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wab-cE-pqz">
+                                            <rect key="frame" x="301" y="13" width="69" height="17"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="subtitle" destination="wab-cE-pqz" id="UZx-jz-865"/>
+                                    <outlet property="title" destination="lVg-BP-csN" id="XEw-bS-POl"/>
+                                    <segue destination="iFL-jM-qHW" kind="unwind" unwindAction="unwindSegueBackWithSegue:" id="9jX-KF-9LR"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -151,20 +201,12 @@
                             <outlet property="delegate" destination="7qH-0Y-Ezy" id="nO2-vG-5f0"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Tour / Guide" id="6dk-g8-QVQ">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="Elg-Zf-Dws">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="UJE-Xn-C36">
-                                <rect key="frame" x="-33" y="-15" width="86" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system"/>
-                            </button>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Tour / Guide" id="6dk-g8-QVQ"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="muu-GI-skG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="iFL-jM-qHW" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3008" y="-328"/>
+            <point key="canvasLocation" x="3007.6923076923076" y="-328.43601895734594"/>
         </scene>
         <!--MAP-->
         <scene sceneID="1pR-Fr-BbH">
@@ -187,12 +229,15 @@
         </scene>
     </scenes>
     <resources>
-        <image name="list.bullet" catalog="system" width="128" height="88"/>
+        <image name="list.dash" catalog="system" width="128" height="85"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="map" catalog="system" width="128" height="110"/>
-        <image name="person.fill" catalog="system" width="128" height="120"/>
-        <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="photo.on.rectangle.angled" catalog="system" width="128" height="100"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
