@@ -7,22 +7,22 @@
 
 import Foundation
 import MapKit
+import FirebaseFirestore
 
 struct TourPoint {
-    var Title:String
-    var Latitude:Double
-    var Longitude:Double
+    var title:String
+    var coordinate:GeoPoint
     
     var coord:CLLocationCoordinate2D {
         get {
-            return CLLocationCoordinate2D(latitude: Latitude, longitude: Longitude)
+            return CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude)
         }
     }
     
     var annotation:MKPointAnnotation {
         get {
             let ann = MKPointAnnotation()
-            ann.title = Title
+            ann.title = title
             ann.coordinate = coord
             return ann
         }
@@ -34,21 +34,21 @@ struct TourPoint {
         }
     }
     
-    init(_ title:String, _ latitude:Double, _ longitude:Double) {
-        Title = title
-        Latitude = latitude
-        Longitude = longitude
-    }
+//    init(_ title:String, _ coordinate:GeoPoint) {
+//        self.title = title
+//        self.coordinate = coordinate
+//    }
 }
 
-struct TourDetail {
+struct TourDetail: Identifiable {
+    var id:String
     var title:String
     var subtitle:String
     var tourPoints:[TourPoint]
     
-    init(_ title:String, _ subtitle:String, _ tourPoints:[TourPoint]) {
-        self.title = title
-        self.subtitle = subtitle
-        self.tourPoints = tourPoints
-    }
+//    init(_ title:String, _ subtitle:String, _ tourPoints:[TourPoint]) {
+//        self.title = title
+//        self.subtitle = subtitle
+//        self.tourPoints = tourPoints
+//    }
 }

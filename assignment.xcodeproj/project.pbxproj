@@ -19,9 +19,13 @@
 		6FA0DC4D278AC16C00EFF1DF /* assignmentUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA0DC4C278AC16C00EFF1DF /* assignmentUITestsLaunchTests.swift */; };
 		6FA0DC5A278AC98300EFF1DF /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA0DC59278AC98300EFF1DF /* MapViewController.swift */; };
 		6FA0DC62278ACE3400EFF1DF /* UIViewExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA0DC61278ACE3400EFF1DF /* UIViewExtentions.swift */; };
-		6FA9D053278B07E4000EFF1D /* TourStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA9D052278B07E4000EFF1D /* TourStruct.swift */; };
+		6FA9D053278B07E4000EFF1D /* Tour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA9D052278B07E4000EFF1D /* Tour.swift */; };
 		6FA9D055278B0A02000EFF1D /* TourCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA9D054278B0A02000EFF1D /* TourCell.swift */; };
 		6FF6C30A278AE49A0025F2AC /* TourTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF6C309278AE49A0025F2AC /* TourTableViewController.swift */; };
+		6FFE61E22790070600A13F51 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6FFE61E12790070600A13F51 /* GoogleService-Info.plist */; };
+		6FFE61E5279007F000A13F51 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 6FFE61E4279007F000A13F51 /* FirebaseAuth */; };
+		6FFE61E7279007F000A13F51 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 6FFE61E6279007F000A13F51 /* FirebaseFirestore */; };
+		6FFE61EB2790093A00A13F51 /* FirebaseTour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFE61EA2790093A00A13F51 /* FirebaseTour.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,9 +62,11 @@
 		6FA0DC4C278AC16C00EFF1DF /* assignmentUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = assignmentUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		6FA0DC59278AC98300EFF1DF /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		6FA0DC61278ACE3400EFF1DF /* UIViewExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtentions.swift; sourceTree = "<group>"; };
-		6FA9D052278B07E4000EFF1D /* TourStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourStruct.swift; sourceTree = "<group>"; };
+		6FA9D052278B07E4000EFF1D /* Tour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tour.swift; sourceTree = "<group>"; };
 		6FA9D054278B0A02000EFF1D /* TourCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourCell.swift; sourceTree = "<group>"; };
 		6FF6C309278AE49A0025F2AC /* TourTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourTableViewController.swift; sourceTree = "<group>"; };
+		6FFE61E12790070600A13F51 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		6FFE61EA2790093A00A13F51 /* FirebaseTour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseTour.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +74,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FFE61E5279007F000A13F51 /* FirebaseAuth in Frameworks */,
+				6FFE61E7279007F000A13F51 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,6 +119,9 @@
 		6FA0DC25278AC16B00EFF1DF /* assignment */ = {
 			isa = PBXGroup;
 			children = (
+				6FFE61E9279008EE00A13F51 /* Views */,
+				6FFE61E8279008DB00A13F51 /* Models */,
+				6FFE61E12790070600A13F51 /* GoogleService-Info.plist */,
 				6FA0DC26278AC16B00EFF1DF /* AppDelegate.swift */,
 				6FA0DC28278AC16B00EFF1DF /* SceneDelegate.swift */,
 				6FA0DC2A278AC16B00EFF1DF /* NavigationViewController.swift */,
@@ -122,8 +133,6 @@
 				6FA0DC59278AC98300EFF1DF /* MapViewController.swift */,
 				6FA0DC61278ACE3400EFF1DF /* UIViewExtentions.swift */,
 				6FF6C309278AE49A0025F2AC /* TourTableViewController.swift */,
-				6FA9D052278B07E4000EFF1D /* TourStruct.swift */,
-				6FA9D054278B0A02000EFF1D /* TourCell.swift */,
 			);
 			path = assignment;
 			sourceTree = "<group>";
@@ -145,6 +154,23 @@
 			path = assignmentUITests;
 			sourceTree = "<group>";
 		};
+		6FFE61E8279008DB00A13F51 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6FA9D052278B07E4000EFF1D /* Tour.swift */,
+				6FFE61EA2790093A00A13F51 /* FirebaseTour.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		6FFE61E9279008EE00A13F51 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6FA9D054278B0A02000EFF1D /* TourCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -161,6 +187,10 @@
 			dependencies = (
 			);
 			name = assignment;
+			packageProductDependencies = (
+				6FFE61E4279007F000A13F51 /* FirebaseAuth */,
+				6FFE61E6279007F000A13F51 /* FirebaseFirestore */,
+			);
 			productName = assignment;
 			productReference = 6FA0DC23278AC16B00EFF1DF /* assignment.app */;
 			productType = "com.apple.product-type.application";
@@ -233,6 +263,9 @@
 				Base,
 			);
 			mainGroup = 6FA0DC1A278AC16B00EFF1DF;
+			packageReferences = (
+				6FFE61E3279007F000A13F51 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 6FA0DC24278AC16B00EFF1DF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -250,6 +283,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6FA0DC36278AC16C00EFF1DF /* LaunchScreen.storyboard in Resources */,
+				6FFE61E22790070600A13F51 /* GoogleService-Info.plist in Resources */,
 				6FA0DC33278AC16C00EFF1DF /* Assets.xcassets in Resources */,
 				6FA0DC2E278AC16B00EFF1DF /* Main.storyboard in Resources */,
 			);
@@ -282,8 +316,9 @@
 				6FA0DC27278AC16B00EFF1DF /* AppDelegate.swift in Sources */,
 				6FA0DC62278ACE3400EFF1DF /* UIViewExtentions.swift in Sources */,
 				6FA0DC5A278AC98300EFF1DF /* MapViewController.swift in Sources */,
+				6FFE61EB2790093A00A13F51 /* FirebaseTour.swift in Sources */,
 				6FA0DC29278AC16B00EFF1DF /* SceneDelegate.swift in Sources */,
-				6FA9D053278B07E4000EFF1D /* TourStruct.swift in Sources */,
+				6FA9D053278B07E4000EFF1D /* Tour.swift in Sources */,
 				6FF6C30A278AE49A0025F2AC /* TourTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -632,6 +667,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6FFE61E3279007F000A13F51 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6FFE61E4279007F000A13F51 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6FFE61E3279007F000A13F51 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		6FFE61E6279007F000A13F51 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6FFE61E3279007F000A13F51 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		6FA0DC2F278AC16B00EFF1DF /* assignment.xcdatamodeld */ = {

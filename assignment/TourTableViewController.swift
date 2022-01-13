@@ -7,13 +7,43 @@
 
 import UIKit
 import MapKit
+import Firebase
 
 class TourTableViewController: UITableViewController {
 
     var selectedItem:TourDetail?
+    var tours:[TourDetail] = [TourDetail]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        fetchTours()
+    }
+    
+    func fetchTours() {
+        let db = Firestore.firestore()
+        db.collection("tours").getDocuments { snapshot, error in
+            if error == nil {
+                if let snapshot = snapshot {
+                    let arr = snapshot.documents.map { d -> TourDetail in
+                        let tourPoints = d["tourPoints"] as? [[String: Any]] ?? [[String: Any]]()
+                        return TourDetail(
+                            id: d.documentID,
+                            title: d["title"] as? String ?? "",
+                            subtitle: d["subtitle"] as? String ?? "",
+                            tourPoints: tourPoints.map { tp -> TourPoint in return TourPoint(
+                                title: tp["title"] as? String ?? "",
+                                coordinate: tp["coordinate"] as? GeoPoint ?? GeoPoint(latitude: 0, longitude: 0)) })
+                    }
+                    self.tours = arr
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                }
+            }else{
+                print(error?.localizedDescription)
+            }
+        }
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -23,13 +53,15 @@ class TourTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 3
+        return tours.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tourCell", for: indexPath) as! TourCell
-        cell.title.text = "123123213"
-        cell.subtitle.text = "12328"
+        let idx = indexPath.row
+        
+        cell.title.text = tours[idx].title
+        cell.subtitle.text = tours[idx].subtitle
 
         return cell
     }
@@ -45,9 +77,7 @@ class TourTableViewController: UITableViewController {
         let idx = cell.convert(CGPoint.zero, to: self.tableView)
         let indexPath = self.tableView.indexPathForRow(at: idx)
         
-        print(indexPath!.row)
-        
-        self.selectedItem = TourDetail("123", "456", [TourPoint]())
+        self.selectedItem = tours[indexPath!.row]
     }
     
 }

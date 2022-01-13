@@ -55,10 +55,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         print("TEST2")
         if let item = source?.selectedItem {
             print(item)
+            showTourPath(item.tourPoints)
         }
     }
     
     func showTourPath(_ tours:[TourPoint]){
+        guard tours.count > 0 else { return }
         // reset map view
         self.mapView.removeAnnotations(self.mapView.annotations)
         self.mapView.removeOverlays(self.mapView.overlays)
@@ -83,8 +85,20 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                         self.mapView.addOverlay(route.polyline)
                         self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: false)
                     }
+                    
+                    let firstPtCoord = CLLocationCoordinate2D(
+                        latitude: tours[0].coordinate.latitude,
+                        longitude: tours[0].coordinate.longitude)
+                    let region = MKCoordinateRegion(center: firstPtCoord, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+                    self.mapView.setRegion(region, animated: true)
                 }
             }
+        } else if tours.count == 1 {
+            let firstPtCoord = CLLocationCoordinate2D(
+                latitude: tours[0].coordinate.latitude,
+                longitude: tours[0].coordinate.longitude)
+            let region = MKCoordinateRegion(center: firstPtCoord, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+            self.mapView.setRegion(region, animated: true)
         }
     }
     
