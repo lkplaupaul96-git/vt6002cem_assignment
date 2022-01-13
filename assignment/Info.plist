@@ -25,5 +25,7 @@
     <string>需要您的同意, 才能在使用期間訪問位置</string>
     <key>NSPhotoLibraryUsageDescription</key>
     <string>需要您的同意, 才能訪問相機</string>
+    <key>NSCameraUsageDescription</key>
+    <string>需要您的同意, 才能訪問相機</string>
 </dict>
 </plist>
