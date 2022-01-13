@@ -6,12 +6,21 @@
 //
 
 import UIKit
+import CoreData
 
-class TourDetailsViewController: UITableViewController {
+class TourDetailsViewController: UITableViewController, UINavigationControllerDelegate {
     
-    var tour:TourDetail
+    var tour: TourDetail
+    var selectedIdx: Int = 0
     
-    init(tour:TourDetail) {
+    var imagePicker: UIImagePickerController!
+    var managedObjectContext : NSManagedObjectContext? {
+            if let delegate = UIApplication.shared.delegate as? AppDelegate {
+                return delegate.persistentContainer.viewContext;
+            }
+    return nil; }
+    
+    init(tour: TourDetail) {
         self.tour = tour
         super.init(style: UITableView.Style.plain)
     }
@@ -22,6 +31,8 @@ class TourDetailsViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Take Photo", style: .done, target: self, action:  #selector(takePhoto))
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Close", style: .done, target: self, action:  #selector(closeTourDetailsView))
         
         self.tableView.delegate = self
@@ -33,6 +44,26 @@ class TourDetailsViewController: UITableViewController {
         NotificationCenter.default.post(name: Notification.Name("clearTour"), object: nil)
         self.navigationController?.dismiss(animated: true, completion: nil)
     }
+    
+    @objc func takePhoto() {
+        guard UIImagePickerController.isSourceTypeAvailable(.camera) else {
+            selectImageFrom(.photoLibrary)
+            return
+        }
+        selectImageFrom(.camera)
+    }
+    
+    func selectImageFrom(_ source: ImageSource){
+        imagePicker =  UIImagePickerController()
+        imagePicker.delegate = self
+        switch source {
+        case .camera:
+            imagePicker.sourceType = .camera
+        case .photoLibrary:
+            imagePicker.sourceType = .photoLibrary
+        }
+        present(imagePicker, animated: true, completion: nil)
+    }
 
     // MARK: - Table view data source
 
@@ -43,7 +74,6 @@ class TourDetailsViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        print(tour.tourPoints.count)
         return tour.tourPoints.count
     }
 
@@ -61,6 +91,27 @@ class TourDetailsViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         NotificationCenter.default.post(name: Notification.Name("moveToPoint"), object: tour.tourPoints[indexPath.row].coord)
+        self.selectedIdx = indexPath.row
     }
     
+    enum ImageSource {
+        case photoLibrary
+        case camera
+    }
+}
+
+extension TourDetailsViewController: UIImagePickerControllerDelegate{
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]){
+        imagePicker.dismiss(animated: true, completion: nil)
+        guard let selectedImage = info[.originalImage] as? UIImage else {
+            print("Image not found!")
+            return
+        }
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let pngImage = selectedImage.pngData()
+        
+    }
 }
