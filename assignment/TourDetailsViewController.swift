@@ -112,7 +112,7 @@ extension TourDetailsViewController: UIImagePickerControllerDelegate{
         let pngImage = selectedImage.pngData()
         if let context = self.managedObjectContext {
             if let newTourPhoto = NSEntityDescription.insertNewObject(forEntityName: "TourRecord", into: context) as? TourRecord {
-                newTourPhoto.title = selectedIdx == -1 ? tour.title : tour.tourPoints[selectedIdx].title
+                newTourPhoto.title = selectedIdx == -1 ? tour.title : "\(tour.title) - \(tour.tourPoints[selectedIdx].title)"
                 newTourPhoto.date = Date()
                 newTourPhoto.imageData = pngImage
                 newTourPhoto.point = Int32(selectedIdx)
