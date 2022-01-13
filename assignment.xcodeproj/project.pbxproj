@@ -28,9 +28,7 @@
 		6FFE61EB2790093A00A13F51 /* FirebaseTour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFE61EA2790093A00A13F51 /* FirebaseTour.swift */; };
 		6FFE61F42790223B00A13F51 /* TourDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFE61F22790223B00A13F51 /* TourDetailsViewController.swift */; };
 		6FFE61F52790223B00A13F51 /* TourDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FFE61F32790223B00A13F51 /* TourDetailsViewController.xib */; };
-		6FFE61F827903A0E00A13F51 /* TourPhoto.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6FFE61F627903A0E00A13F51 /* TourPhoto.xcdatamodeld */; };
-		6FFE61FB2790406000A13F51 /* TourPhoto+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFE61F92790406000A13F51 /* TourPhoto+CoreDataClass.swift */; };
-		6FFE61FC2790406000A13F51 /* TourPhoto+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFE61FA2790406000A13F51 /* TourPhoto+CoreDataProperties.swift */; };
+		6FFE61FF2790414000A13F51 /* TourPhotoCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6FFE61FD2790414000A13F51 /* TourPhotoCoreData.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,9 +72,7 @@
 		6FFE61EA2790093A00A13F51 /* FirebaseTour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseTour.swift; sourceTree = "<group>"; };
 		6FFE61F22790223B00A13F51 /* TourDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourDetailsViewController.swift; sourceTree = "<group>"; };
 		6FFE61F32790223B00A13F51 /* TourDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TourDetailsViewController.xib; sourceTree = "<group>"; };
-		6FFE61F727903A0E00A13F51 /* TourPhoto.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TourPhoto.xcdatamodel; sourceTree = "<group>"; };
-		6FFE61F92790406000A13F51 /* TourPhoto+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TourPhoto+CoreDataClass.swift"; sourceTree = "<group>"; };
-		6FFE61FA2790406000A13F51 /* TourPhoto+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TourPhoto+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		6FFE61FE2790414000A13F51 /* TourPhotoCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TourPhotoCoreData.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,8 +105,6 @@
 		6FA0DC1A278AC16B00EFF1DF = {
 			isa = PBXGroup;
 			children = (
-				6FFE61F92790406000A13F51 /* TourPhoto+CoreDataClass.swift */,
-				6FFE61FA2790406000A13F51 /* TourPhoto+CoreDataProperties.swift */,
 				6FA0DC25278AC16B00EFF1DF /* assignment */,
 				6FA0DC3F278AC16C00EFF1DF /* assignmentTests */,
 				6FA0DC49278AC16C00EFF1DF /* assignmentUITests */,
@@ -147,6 +141,7 @@
 				6FF6C309278AE49A0025F2AC /* TourTableViewController.swift */,
 				6FFE61F22790223B00A13F51 /* TourDetailsViewController.swift */,
 				6FFE61F32790223B00A13F51 /* TourDetailsViewController.xib */,
+				6FFE61FD2790414000A13F51 /* TourPhotoCoreData.xcdatamodeld */,
 			);
 			path = assignment;
 			sourceTree = "<group>";
@@ -173,7 +168,6 @@
 			children = (
 				6FA9D052278B07E4000EFF1D /* Tour.swift */,
 				6FFE61EA2790093A00A13F51 /* FirebaseTour.swift */,
-				6FFE61F627903A0E00A13F51 /* TourPhoto.xcdatamodeld */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -328,15 +322,13 @@
 			files = (
 				6FA0DC31278AC16B00EFF1DF /* assignment.xcdatamodeld in Sources */,
 				6FA0DC2B278AC16B00EFF1DF /* NavigationViewController.swift in Sources */,
-				6FFE61FC2790406000A13F51 /* TourPhoto+CoreDataProperties.swift in Sources */,
 				6FA9D055278B0A02000EFF1D /* TourCell.swift in Sources */,
 				6FA0DC27278AC16B00EFF1DF /* AppDelegate.swift in Sources */,
 				6FA0DC62278ACE3400EFF1DF /* UIViewExtentions.swift in Sources */,
+				6FFE61FF2790414000A13F51 /* TourPhotoCoreData.xcdatamodeld in Sources */,
 				6FA0DC5A278AC98300EFF1DF /* MapViewController.swift in Sources */,
-				6FFE61F827903A0E00A13F51 /* TourPhoto.xcdatamodeld in Sources */,
 				6FFE61EB2790093A00A13F51 /* FirebaseTour.swift in Sources */,
 				6FFE61F42790223B00A13F51 /* TourDetailsViewController.swift in Sources */,
-				6FFE61FB2790406000A13F51 /* TourPhoto+CoreDataClass.swift in Sources */,
 				6FA0DC29278AC16B00EFF1DF /* SceneDelegate.swift in Sources */,
 				6FA9D053278B07E4000EFF1D /* Tour.swift in Sources */,
 				6FF6C30A278AE49A0025F2AC /* TourTableViewController.swift in Sources */,
@@ -723,13 +715,13 @@
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
-		6FFE61F627903A0E00A13F51 /* TourPhoto.xcdatamodeld */ = {
+		6FFE61FD2790414000A13F51 /* TourPhotoCoreData.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				6FFE61F727903A0E00A13F51 /* TourPhoto.xcdatamodel */,
+				6FFE61FE2790414000A13F51 /* TourPhotoCoreData.xcdatamodel */,
 			);
-			currentVersion = 6FFE61F727903A0E00A13F51 /* TourPhoto.xcdatamodel */;
-			path = TourPhoto.xcdatamodeld;
+			currentVersion = 6FFE61FE2790414000A13F51 /* TourPhotoCoreData.xcdatamodel */;
+			path = TourPhotoCoreData.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

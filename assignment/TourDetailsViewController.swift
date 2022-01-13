@@ -11,13 +11,13 @@ import CoreData
 class TourDetailsViewController: UITableViewController, UINavigationControllerDelegate {
     
     var tour: TourDetail
-    var selectedIdx: Int = 0
+    var selectedIdx: Int = -1
     
     var imagePicker: UIImagePickerController!
     var managedObjectContext : NSManagedObjectContext? {
-            if let delegate = UIApplication.shared.delegate as? AppDelegate {
-                return delegate.persistentContainer.viewContext;
-            }
+        if let delegate = UIApplication.shared.delegate as? AppDelegate {
+            return delegate.persistentContainer.viewContext;
+        }
     return nil; }
     
     init(tour: TourDetail) {
@@ -108,10 +108,21 @@ extension TourDetailsViewController: UIImagePickerControllerDelegate{
             print("Image not found!")
             return
         }
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        let managedContext = appDelegate.persistentContainer.viewContext
         
         let pngImage = selectedImage.pngData()
-        
+        if let context = self.managedObjectContext {
+            if let newTourPhoto = NSEntityDescription.insertNewObject(forEntityName: "TourPhoto", into: context) as? TourPhoto {
+                newTourPhoto.title = selectedIdx == -1 ? tour.title : tour.tourPoints[selectedIdx].title
+                newTourPhoto.date = Date()
+                newTourPhoto.imageData = pngImage
+                newTourPhoto.point = Int32(selectedIdx)
+                newTourPhoto.tourId = tour.id
+            }
+            do {
+                try context.save();
+            } catch  {
+                print("can't save");
+            }
+        }
     }
 }
