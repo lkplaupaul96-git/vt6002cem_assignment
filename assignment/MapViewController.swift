@@ -7,6 +7,7 @@
 
 import UIKit
 import MapKit
+import Firebase
 
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
@@ -33,6 +34,31 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         guard CLLocationManager.locationServicesEnabled() else { return }
         firstGPSCoord = false
         locationManager.startUpdatingLocation()
+        
+        fetchTours()
+    }
+    
+    func fetchTours() {
+        let db = Firestore.firestore()
+        db.collection("tours").getDocuments { snapshot, error in
+            if error == nil {
+                if let snapshot = snapshot {
+                    let arr = snapshot.documents.map { d -> TourDetail in
+                        let tourPoints = d["tourPoints"] as? [[String: Any]] ?? [[String: Any]]()
+                        return TourDetail(
+                            id: d.documentID,
+                            title: d["title"] as? String ?? "",
+                            subtitle: d["subtitle"] as? String ?? "",
+                            tourPoints: tourPoints.map { tp -> TourPoint in return TourPoint(
+                                title: tp["title"] as? String ?? "",
+                                coordinate: tp["coordinate"] as? GeoPoint ?? GeoPoint(latitude: 0, longitude: 0)) })
+                    }
+                    self.mapView.showAnnotations(arr.map({ $0.tourPoints[0].annotation }), animated: true )
+                }
+            }else{
+                print(error?.localizedDescription)
+            }
+        }
     }
     
     func presentSubView(_ tour:TourDetail) {
