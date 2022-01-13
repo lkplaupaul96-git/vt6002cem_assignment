@@ -102,7 +102,7 @@ class TourDetailsViewController: UITableViewController, UINavigationControllerDe
 
 extension TourDetailsViewController: UIImagePickerControllerDelegate{
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]){
+    @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]){
         imagePicker.dismiss(animated: true, completion: nil)
         guard let selectedImage = info[.originalImage] as? UIImage else {
             print("Image not found!")
@@ -111,7 +111,7 @@ extension TourDetailsViewController: UIImagePickerControllerDelegate{
         
         let pngImage = selectedImage.pngData()
         if let context = self.managedObjectContext {
-            if let newTourPhoto = NSEntityDescription.insertNewObject(forEntityName: "TourPhoto", into: context) as? TourPhoto {
+            if let newTourPhoto = NSEntityDescription.insertNewObject(forEntityName: "TourRecord", into: context) as? TourRecord {
                 newTourPhoto.title = selectedIdx == -1 ? tour.title : tour.tourPoints[selectedIdx].title
                 newTourPhoto.date = Date()
                 newTourPhoto.imageData = pngImage
@@ -120,6 +120,9 @@ extension TourDetailsViewController: UIImagePickerControllerDelegate{
             }
             do {
                 try context.save();
+                let alert = UIAlertController(title: "", message: "Saved.", preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
             } catch  {
                 print("can't save");
             }

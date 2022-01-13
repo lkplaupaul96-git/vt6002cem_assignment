@@ -22,13 +22,14 @@
 		6FA9D053278B07E4000EFF1D /* Tour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA9D052278B07E4000EFF1D /* Tour.swift */; };
 		6FA9D055278B0A02000EFF1D /* TourCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA9D054278B0A02000EFF1D /* TourCell.swift */; };
 		6FF6C30A278AE49A0025F2AC /* TourTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF6C309278AE49A0025F2AC /* TourTableViewController.swift */; };
+		6FFB4AC32790562300160DC1 /* TourRecord+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFB4AC12790562300160DC1 /* TourRecord+CoreDataClass.swift */; };
+		6FFB4AC42790562300160DC1 /* TourRecord+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFB4AC22790562300160DC1 /* TourRecord+CoreDataProperties.swift */; };
 		6FFE61E22790070600A13F51 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6FFE61E12790070600A13F51 /* GoogleService-Info.plist */; };
 		6FFE61E5279007F000A13F51 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 6FFE61E4279007F000A13F51 /* FirebaseAuth */; };
 		6FFE61E7279007F000A13F51 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 6FFE61E6279007F000A13F51 /* FirebaseFirestore */; };
 		6FFE61EB2790093A00A13F51 /* FirebaseTour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFE61EA2790093A00A13F51 /* FirebaseTour.swift */; };
 		6FFE61F42790223B00A13F51 /* TourDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFE61F22790223B00A13F51 /* TourDetailsViewController.swift */; };
 		6FFE61F52790223B00A13F51 /* TourDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FFE61F32790223B00A13F51 /* TourDetailsViewController.xib */; };
-		6FFE61FF2790414000A13F51 /* TourPhotoCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6FFE61FD2790414000A13F51 /* TourPhotoCoreData.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,11 +69,12 @@
 		6FA9D052278B07E4000EFF1D /* Tour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tour.swift; sourceTree = "<group>"; };
 		6FA9D054278B0A02000EFF1D /* TourCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourCell.swift; sourceTree = "<group>"; };
 		6FF6C309278AE49A0025F2AC /* TourTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourTableViewController.swift; sourceTree = "<group>"; };
+		6FFB4AC12790562300160DC1 /* TourRecord+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TourRecord+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		6FFB4AC22790562300160DC1 /* TourRecord+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TourRecord+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		6FFE61E12790070600A13F51 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6FFE61EA2790093A00A13F51 /* FirebaseTour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseTour.swift; sourceTree = "<group>"; };
 		6FFE61F22790223B00A13F51 /* TourDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourDetailsViewController.swift; sourceTree = "<group>"; };
 		6FFE61F32790223B00A13F51 /* TourDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TourDetailsViewController.xib; sourceTree = "<group>"; };
-		6FFE61FE2790414000A13F51 /* TourPhotoCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TourPhotoCoreData.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,7 +143,6 @@
 				6FF6C309278AE49A0025F2AC /* TourTableViewController.swift */,
 				6FFE61F22790223B00A13F51 /* TourDetailsViewController.swift */,
 				6FFE61F32790223B00A13F51 /* TourDetailsViewController.xib */,
-				6FFE61FD2790414000A13F51 /* TourPhotoCoreData.xcdatamodeld */,
 			);
 			path = assignment;
 			sourceTree = "<group>";
@@ -166,6 +167,8 @@
 		6FFE61E8279008DB00A13F51 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				6FFB4AC12790562300160DC1 /* TourRecord+CoreDataClass.swift */,
+				6FFB4AC22790562300160DC1 /* TourRecord+CoreDataProperties.swift */,
 				6FA9D052278B07E4000EFF1D /* Tour.swift */,
 				6FFE61EA2790093A00A13F51 /* FirebaseTour.swift */,
 			);
@@ -321,16 +324,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				6FA0DC31278AC16B00EFF1DF /* assignment.xcdatamodeld in Sources */,
+				6FFB4AC42790562300160DC1 /* TourRecord+CoreDataProperties.swift in Sources */,
 				6FA0DC2B278AC16B00EFF1DF /* NavigationViewController.swift in Sources */,
 				6FA9D055278B0A02000EFF1D /* TourCell.swift in Sources */,
 				6FA0DC27278AC16B00EFF1DF /* AppDelegate.swift in Sources */,
 				6FA0DC62278ACE3400EFF1DF /* UIViewExtentions.swift in Sources */,
-				6FFE61FF2790414000A13F51 /* TourPhotoCoreData.xcdatamodeld in Sources */,
 				6FA0DC5A278AC98300EFF1DF /* MapViewController.swift in Sources */,
 				6FFE61EB2790093A00A13F51 /* FirebaseTour.swift in Sources */,
 				6FFE61F42790223B00A13F51 /* TourDetailsViewController.swift in Sources */,
 				6FA0DC29278AC16B00EFF1DF /* SceneDelegate.swift in Sources */,
 				6FA9D053278B07E4000EFF1D /* Tour.swift in Sources */,
+				6FFB4AC32790562300160DC1 /* TourRecord+CoreDataClass.swift in Sources */,
 				6FF6C30A278AE49A0025F2AC /* TourTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -712,16 +716,6 @@
 			);
 			currentVersion = 6FA0DC30278AC16B00EFF1DF /* assignment.xcdatamodel */;
 			path = assignment.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-		6FFE61FD2790414000A13F51 /* TourPhotoCoreData.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				6FFE61FE2790414000A13F51 /* TourPhotoCoreData.xcdatamodel */,
-			);
-			currentVersion = 6FFE61FE2790414000A13F51 /* TourPhotoCoreData.xcdatamodel */;
-			path = TourPhotoCoreData.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
