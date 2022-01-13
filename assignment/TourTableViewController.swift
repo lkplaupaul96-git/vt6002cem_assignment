@@ -66,11 +66,6 @@ class TourTableViewController: UITableViewController {
         return cell
     }
     
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        self.selectedItem = TourDetail("123", "456", [TourPoint]())
-//        print("TEST")
-//    }
-    
     // back to map view
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let cell = sender as? UITableViewCell else { return }

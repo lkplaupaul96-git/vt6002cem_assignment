@@ -23,6 +23,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.clearTour(notification:)), name: Notification.Name("clearTour"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.moveToPoint(notification:)), name: Notification.Name("moveToPoint"), object: nil)
     }
     
     @IBAction func showNearbyTour() {
@@ -32,9 +35,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         locationManager.startUpdatingLocation()
     }
     
-    func presentSubView() {
-        let vc = UIViewController()
-        vc.view.backgroundColor = .white
+    func presentSubView(_ tour:TourDetail) {
+        let vc = TourDetailsViewController(tour: tour)
+
         let nav = UINavigationController(rootViewController: vc)
         nav.modalPresentationStyle = .pageSheet
         nav.isModalInPresentation = true
@@ -43,19 +46,36 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             sheet.largestUndimmedDetentIdentifier = .medium
             sheet.prefersGrabberVisible = true
         }
-        present(nav, animated: true, completion: nil)
+        self.present(nav, animated: true, completion: nil)
+//        performSegue(withIdentifier: "showTourDetails", sender: nil)
+    }
+    
+    @objc func closeTourDetailsView() {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func clearTour(notification: Any) {
+        self.mapView.removeAnnotations(self.mapView.annotations)
+        self.mapView.removeOverlays(self.mapView.overlays)
+    }
+    
+    @objc func moveToPoint(notification: Notification) {
+        guard let coord = notification.object as? CLLocationCoordinate2D else { return }
+        self.moveMapView(coord.latitude, coord.longitude)
     }
     
     deinit {
-        //
+        NotificationCenter.default.removeObserver(self, name: Notification.Name("clearTour"), object: nil)
+        NotificationCenter.default.removeObserver(self, name: Notification.Name("moveToPoint"), object: nil)
     }
     
     @IBAction func unwindSegueBack(segue: UIStoryboardSegue){
         let source = segue.source as? TourTableViewController
-        print("TEST2")
         if let item = source?.selectedItem {
-            print(item)
             showTourPath(item.tourPoints)
+            DispatchQueue.main.async {
+                self.presentSubView(item)
+            }
         }
     }
     
@@ -86,20 +106,29 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                         self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: false)
                     }
                     
-                    let firstPtCoord = CLLocationCoordinate2D(
-                        latitude: tours[0].coordinate.latitude,
-                        longitude: tours[0].coordinate.longitude)
-                    let region = MKCoordinateRegion(center: firstPtCoord, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-                    self.mapView.setRegion(region, animated: true)
+                    self.moveMapView(tours[0].coordinate.latitude,
+                                     tours[0].coordinate.longitude)
                 }
             }
         } else if tours.count == 1 {
-            let firstPtCoord = CLLocationCoordinate2D(
-                latitude: tours[0].coordinate.latitude,
-                longitude: tours[0].coordinate.longitude)
-            let region = MKCoordinateRegion(center: firstPtCoord, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-            self.mapView.setRegion(region, animated: true)
+            moveMapView(tours[0].coordinate.latitude,
+                        tours[0].coordinate.longitude)
         }
+    }
+    
+    func moveMapView(_ latitude: Double, _ longitude: Double) {
+        let firstPtCoord = CLLocationCoordinate2D(
+            latitude: latitude,
+            longitude: longitude)
+        let region = MKCoordinateRegion(center: firstPtCoord, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+        self.mapView.setRegion(region, animated: false)
+        let viewCenter = self.mapView.center
+        let fakeCenter = CGPoint(x: viewCenter.x,
+                                 y: viewCenter.y + (self.mapView.frame.size.height / 2 - 50))
+        self.mapView.setCenter(
+            self.mapView.convert(fakeCenter,
+                                 toCoordinateFrom: self.mapView),
+                animated: true)
     }
     
     // Delegate
